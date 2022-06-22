@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 export function Post() {
   return (
     <article className={styles.post}>
+      {/* Post Author */}
       <header>
         <div className={styles.author}>
           <img
@@ -24,6 +25,7 @@ export function Post() {
         </time>
       </header>
 
+      {/* Post Content */}
       <div className={styles.content}>
         <p>Fala Galera!</p>
         <p>
@@ -34,7 +36,7 @@ export function Post() {
           <a href="#">EduardoAguiarS GitHub</a>
         </p>
         <p>
-          <a href="#">#newproject #nlw</a>
+          <a href="#">#newproject</a> <a href="#">#nlw</a>
         </p>
       </div>
     </article>
