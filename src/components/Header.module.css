@@ -1,5 +1,19 @@
 .header {
-  background: #f4f4f4;
-  height: 80px;
-  color: black;
+  background: var(--gray-800);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 1.25rem 0;
+}
+
+.header img {
+  height: 2.3rem;
+}
+
+.header span {
+  font-weight: 700;
+  font-size: 1.2rem;
 }
