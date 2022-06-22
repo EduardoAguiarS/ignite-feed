@@ -70,4 +70,11 @@
 
   font-weight: 700;
   text-decoration: none;
+
+  transition: color 0.25s, background-color 0.1s;
+}
+
+.sidebar footer a:hover {
+  background: var(--green-500);
+  color: var(--white);
 }
