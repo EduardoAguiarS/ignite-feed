@@ -1,5 +1,5 @@
 // CSS
-import styles from "./index.module.css";
+import styles from "./styles.module.css";
 
 // Phosphor-React
 import { PencilLine } from "phosphor-react";

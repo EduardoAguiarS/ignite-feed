@@ -1,5 +1,5 @@
 // CSS
-import styles from "./index.module.css";
+import styles from "./styles.module.css";
 
 // Assets
 import IgniteLogo from "../../assets/ignite-logo.svg";
