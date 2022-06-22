@@ -1,8 +1,8 @@
 // CSS
-import styles from "./Header.module.css";
+import styles from "./index.module.css";
 
 // Assets
-import IgniteLogo from "../assets/ignite-logo.svg";
+import IgniteLogo from "../../assets/ignite-logo.svg";
 
 // Header Function Component
 export function Header() {

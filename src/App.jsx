@@ -1,6 +1,7 @@
 // Components
 import { Header } from "./components/Header";
 import { Post } from "./Post";
+import { Sidebar } from "./components/Sidebar";
 
 // CSS
 import "./styles/global.css";
@@ -13,7 +14,7 @@ export function App() {
       <Header />
 
       <div className={styles.wrapper}>
-        <aside>sidebar</aside>
+        <Sidebar />
         <main>
           <Post content="Hello World" author="John Doe" />
           <Post content="lorem ipsum" author="Jane Doe" />
