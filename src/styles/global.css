@@ -26,6 +26,12 @@
   --green-500: #00875f;
 }
 
+/* Focus Reset */
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green-500);
+}
+
 /* Body Defaults */
 body {
   background: var(--gray-900);
