@@ -142,3 +142,7 @@
 .comment button[type="submit"]:hover {
   background: var(--green-300);
 }
+
+.commentsList {
+  margin-top: 2rem;
+}

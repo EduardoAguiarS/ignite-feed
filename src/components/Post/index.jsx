@@ -1,4 +1,5 @@
 //CSS
+import { Comment } from "../Comment";
 import styles from "./styles.module.css";
 
 // Post Function Component
@@ -48,6 +49,13 @@ export function Post() {
           <button type="submit">Publicar</button>
         </footer>
       </form>
+
+      {/* Comments List */}
+      <div className={styles.commentsList}>
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </article>
   );
 }
