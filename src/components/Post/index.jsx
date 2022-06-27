@@ -57,10 +57,10 @@ export function Post({ author, publishedAt, content }) {
         {content.map(line => {
           switch (line.type) {
             case "paragraph":
-              return <p>{line.content}</p>;
+              return <p key={line.content}>{line.content}</p>;
             case "link":
               return (
-                <p>
+                <p key={line.content}>
                   <a href={line.content}>{line.content}</a>
                 </p>
               );
@@ -85,7 +85,7 @@ export function Post({ author, publishedAt, content }) {
       {/* Comments List */}
       <div className={styles.commentsList}>
         {comments.map(comment => (
-          <Comment content={comment} />
+          <Comment content={comment} key={comment} />
         ))}
       </div>
     </article>
