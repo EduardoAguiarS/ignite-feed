@@ -10,8 +10,8 @@
 
 - [x] Iniciando com React
 - [x] Estrutura da aplicação
-- [ ] Os motores do React
-- [ ] Aprimorando a aplicação
+- [x] Os motores do React
+- [x] Aprimorando a aplicação
 
 #### Projeto:
 

@@ -10,10 +10,27 @@ import { Comment } from "../Comment";
 import { Avatar } from "../Avatar";
 
 // React
-import { useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
+
+interface Author {
+  name: string;
+  role: string;
+  avatarUrl: string;
+}
+
+interface Content {
+  type: string;
+  content: string;
+}
+
+interface PostProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
 
 // Post Function Component
-export function Post({ author, publishedAt, content }) {
+export function Post({ author, publishedAt, content }: PostProps) {
   // Date Formatter
   const dateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR
@@ -27,18 +44,19 @@ export function Post({ author, publishedAt, content }) {
   const [comments, setComments] = useState(["Post muito bacana hein?!"]);
   const [newCommentText, setNewCommentText] = useState("");
 
-  function handleCreateNewComment() {
+  function handleCreateNewComment(event: FormEvent) {
     event.preventDefault();
+
     setComments(state => [...state, newCommentText]);
     setNewCommentText("");
   }
-  function handleNewCommentChange(event) {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
   }
 
   // Delete Comment
-  function deleteComment(commentToDelete) {
+  function deleteComment(commentToDelete: string) {
     const commentsWhitoutDeleted = comments.filter(
       comment => commentToDelete !== comment
     );
@@ -46,7 +64,7 @@ export function Post({ author, publishedAt, content }) {
   }
 
   // Comment Invalid
-  function handleNewCommentInvalid() {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity("Este campo é obrigatório");
   }
 
@@ -58,7 +76,7 @@ export function Post({ author, publishedAt, content }) {
       {/* Post Author */}
       <header>
         <div className={styles.author}>
-          <Avatar src={author.avatarUrl} />
+          <Avatar src={author.avatarUrl} alt={`${author.name} user avatar`} />
 
           <div className={styles.authorInfo}>
             <strong>{author.name}</strong>

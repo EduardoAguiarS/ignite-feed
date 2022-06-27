@@ -10,8 +10,13 @@ import { Avatar } from "../Avatar";
 // React
 import { useState } from "react";
 
+interface CommentProps {
+  content: string;
+  onDeleteComment: (comment: string) => void;
+}
+
 // Comment Function Component
-export function Comment({ content, onDeleteComment }) {
+export function Comment({ content, onDeleteComment }: CommentProps) {
   // Handle Delete Comment
   function handleDeleteComment() {
     onDeleteComment(content);
@@ -25,7 +30,11 @@ export function Comment({ content, onDeleteComment }) {
 
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://github.com/eduardoaguiars.png" />
+      <Avatar
+        hasBorder={false}
+        src="https://github.com/eduardoaguiars.png"
+        alt="User Avatar"
+      />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
