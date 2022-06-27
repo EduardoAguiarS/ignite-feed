@@ -15,5 +15,8 @@
 
 #### Projeto:
 
+Desktop:
 ![img](./public/readme/desktop.png)
+
+Mobile:
 ![img](public/readme/mobile.png)
