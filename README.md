@@ -34,5 +34,3 @@ yarn dev
 #### Projeto:
 
 ![img](./public/readme/desktop.png)
-
-![img](public/readme/mobile.png)
