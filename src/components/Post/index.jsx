@@ -1,43 +1,56 @@
 //CSS
 import styles from "./styles.module.css";
 
+// Date FNS
+import { format, formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
 // Components
 import { Comment } from "../Comment";
 import { Avatar } from "../Avatar";
 
 // Post Function Component
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+  // Date Formatter
+  const dateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: ptBR
+  });
+  const publishedDistanceToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  });
+
   return (
     <article className={styles.post}>
       {/* Post Author */}
       <header>
         <div className={styles.author}>
-          <Avatar src="https://github.com/eduardoaguiars.png" />
+          <Avatar src={author.avatarUrl} />
 
           <div className={styles.authorInfo}>
-            <strong>Eduardo Aguiar</strong>
-            <span>Web Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
 
-        <time title="11 de maio às 8:13AM" dateTime="2022-05-11 08:13:30">
-          Publicado há 1h
+        <time title={dateFormatted} dateTime={publishedAt.toISOString()}>
+          {publishedDistanceToNow}
         </time>
       </header>
 
       {/* Post Content */}
       <div className={styles.content}>
-        <p>Fala Galera!</p>
-        <p>
-          Acabei de subir mais um projeto no meu Github. É um projeto que fiz no
-          NLW.
-        </p>
-        <p>
-          <a href="#">EduardoAguiarS GitHub</a>
-        </p>
-        <p>
-          <a href="#">#newproject</a> <a href="#">#nlw</a>
-        </p>
+        {content.map(line => {
+          if (line.type === "paragraph") {
+            return <p>{line.content}</p>;
+          } else if (line.type === "link") {
+            return (
+              <p>
+                <a href={line.content}>{line.content}</a>
+              </p>
+            );
+          }
+        })}
       </div>
 
       {/* Post Comment */}

@@ -55,7 +55,7 @@ const posts = [
         content: "https://github.com/diego3g"
       }
     ],
-    publishedAt: new Date("2022-06-27 10:13:30")
+    publishedAt: new Date("2022-06-26 10:13:30")
   } // Post 2
 ];
 
@@ -68,8 +68,14 @@ export function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
+          {posts.map(post => (
+            <Post
+              key={post.id}
+              author={post.author}
+              content={post.content}
+              publishedAt={post.publishedAt}
+            />
+          ))}
         </main>
       </div>
     </>
