@@ -41,14 +41,15 @@ export function Post({ author, publishedAt, content }) {
       {/* Post Content */}
       <div className={styles.content}>
         {content.map(line => {
-          if (line.type === "paragraph") {
-            return <p>{line.content}</p>;
-          } else if (line.type === "link") {
-            return (
-              <p>
-                <a href={line.content}>{line.content}</a>
-              </p>
-            );
+          switch (line.type) {
+            case "paragraph":
+              return <p>{line.content}</p>;
+            case "link":
+              return (
+                <p>
+                  <a href={line.content}>{line.content}</a>
+                </p>
+              );
           }
         })}
       </div>
