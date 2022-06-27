@@ -8,6 +8,8 @@ import ptBR from "date-fns/locale/pt-BR";
 // Components
 import { Comment } from "../Comment";
 import { Avatar } from "../Avatar";
+
+// React
 import { useState } from "react";
 
 // Post Function Component
