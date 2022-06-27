@@ -29,7 +29,7 @@ export function Post({ author, publishedAt, content }) {
 
   function handleCreateNewComment() {
     event.preventDefault();
-    setComments([...comments, newCommentText]);
+    setComments(state => [...state, newCommentText]);
     setNewCommentText("");
   }
   function handleNewCommentChange(event) {
