@@ -8,6 +8,7 @@ import ptBR from "date-fns/locale/pt-BR";
 // Components
 import { Comment } from "../Comment";
 import { Avatar } from "../Avatar";
+import { useState } from "react";
 
 // Post Function Component
 export function Post({ author, publishedAt, content }) {
@@ -19,6 +20,15 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBR,
     addSuffix: true
   });
+
+  // Create new Comment
+
+  const [comments, setComments] = useState([1, 2]);
+
+  function handleCreateNewComment() {
+    event.preventDefault();
+    setComments([...comments, comments.length + 1]);
+  }
 
   return (
     <article className={styles.post}>
@@ -55,7 +65,7 @@ export function Post({ author, publishedAt, content }) {
       </div>
 
       {/* Post Comment */}
-      <form className={styles.comment}>
+      <form className={styles.comment} onSubmit={handleCreateNewComment}>
         <strong>Deixe seu feedback</strong>
         <textarea placeholder="Deixe um comentário" />
         <footer>
@@ -65,9 +75,9 @@ export function Post({ author, publishedAt, content }) {
 
       {/* Comments List */}
       <div className={styles.commentsList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment => (
+          <Comment />
+        ))}
       </div>
     </article>
   );
